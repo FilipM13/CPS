@@ -1,0 +1,15 @@
+tytuł
+
+wstęp
+- Lenna: https://en.wikipedia.org/wiki/Lenna
+- zastosowanie
+
+filtry:
+- przykładowe uśredniające i wyostrzające
+
+przykłady wzorcowe -> Lena:
+- grupowanie: kwadratowe wg rozmiaru, prostokątne wg stosunku długości boków
+
+odpowiedzi częstotliwości:
+- tabela: wymiary filtra; stosunek boków/ odpowiedź
+- wykres
