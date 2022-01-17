@@ -4,11 +4,8 @@
 \geometry{margin=2cm}
 \usepackage[utf8]{inputenc}
 \usepackage{polski}
-\usepackage{microtype}
 \usepackage{graphicx}
-\usepackage{wrapfig}
 \usepackage{enumitem}
-\usepackage{fancyhdr}
 \usepackage{amsmath}
 \usepackage{index}
 \usepackage{subcaption}
@@ -24,32 +21,17 @@
 
 \begin{document}
 
-\title{\Large{\textbf{Filtry uśredniające i wyostrzające w analizie obrazów.}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\Large{\textbf{Wariacje filtrów uśredniających i wyostrzających w analizie obrazów.}}}
 \author{Filip Matejko 249965}
 \date{13.01.2022}
 \maketitle
 
 \tableofcontents
 
-
-\begin{table}
-\centering
-\begin{tabular}{@{}*3c@{}}
-\multicolumn{2}{c}{1} &
-\multicolumn{1}{c}{3}\\
-\hline
-\textbf{col1} & \textbf{col1} & \\
-\hline
-1 & 2 & 3 \\
-\hline
-jeden & dwa & trzy \\
-\hline
-\end{tabular}
-\caption{tabela}
-\end{table}
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Wstęp}
 
 \paragraph{\indent Coraz częściej do analizy obrazów wykorzystuje się komputery. Jednym ze sposobów poprawy skuteczności pracy systemów do analizy obrazów jest stosowanie filtrów. Filtry dobiera się w odpowiednio w zależności od tego co chce się osiągnąć.}
@@ -62,18 +44,6 @@ jeden & dwa & trzy \\
 \includegraphics[width=10cm]{resources/Lena.jpg}\\
 \tiny{Lenna}
 \end{center}
-
-
-
-
-
-
-
-
-
-
-
-
 
 \chapter{Filtry}
 
@@ -172,16 +142,8 @@ n[w, k] = 0\\
 \end{itemize}
 \pagebreak
 
-
-
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Działanie filtrów}
 
 \paragraph{\indent Działanie filtru uśredniającego oraz wyostrzającego są analogiczne. Okno wielkości filtra przesuwa się po obrazie, jego zawartość jest wymnażana przez macierz filtra, a następnie sumowana. Przykład splotu z filtrem uśredniającym:}
@@ -213,21 +175,8 @@ n[w, k] = 0\\
 \tiny{Niebieskie pola wskazują obraz, fioletowe - odbicie.}
 \end{center}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Przykładowe wyniki filtracji}
 
 \begin{center}
@@ -236,7 +185,7 @@ n[w, k] = 0\\
 \tiny{Czarno biała wersja zdjęcia źródłowego poddawana filtracji.}
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 \section{Filtr uśredniający}
 
@@ -258,7 +207,14 @@ n[w, k] = 0\\
 \tiny{Wynik działania filtru 40x40}
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{\indent Jak można zauważyć na powyższych obrazach, rozmycie w stosunku do obrazu źródłowego jest tym większe, im większe wymiary ma wykorzystana macierz. W filtrach o większej powierzchni na jeden piksel obrazu wyjściowego przypada średnia wartość większej ilości pikseli obrazu źródłowego (np dla filtra 40x40 będzie to 1600 pikseli). Skutkuje to zwiększonym wygładzeniem sygnału, co w tym przypadku oznacza rozmycie obrazu. Poniżej przykład na prostszym obrazie:}
+
+\begin{center}
+\text{wyniki działania filtrów 40x40 oraz 20x20:}\\
+\includegraphics[width=7cm]{resources/modified/sample/sample_blur_40x40.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_blur_20x20.jpg}
+\end{center}
+
 \pagebreak
 \subsection{Dodatkowe filtry}
 
@@ -276,12 +232,20 @@ n[w, k] = 0\\
 \includegraphics[width=7cm]{resources/modified/lena/lena_blur_40x5.jpg}
 \end{center}
 
+\pagebreak
+\paragraph{\indent Dodatkowym zjawiskiem powstającym tylko dla niektórych filtrów (nie kwadratowych) jest zwiększone rozmycie wzdłuż jednej z osi. Jeśli filtr ma szerokość większą niż wysokość obraz zostanie bardziej rozmyty w osi poziomek. Jeśli filtr ma wysokość większą niż szerokość obraz zostanie bardziej rozmyty w osi pionowej. Im większy jest stosunek wysokości do szerokości tym efekt ten będzie bardziej wyraźny. Wynika to z faktu, że do kolejnych pikseli obrazu wyjściowego trafia więcej danych z jego 'sąsiadów' wzdłuż danej osi. Poniżej przykład na prostszym obrazie:}
 
+\begin{center}
+\text{wyniki działania filtrów 40x1 oraz 1x40:}\\
+\includegraphics[width=7cm]{resources/modified/sample/sample_blur_40x1.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_blur_1x40.jpg}
+\\
+\text{wyniki działania filtrów 40x5 oraz 5x40:}\\
+\includegraphics[width=7cm]{resources/modified/sample/sample_blur_40x5.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_blur_5x40.jpg}
+\end{center}
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 \section{Filtr wyostrzający}
 
@@ -303,7 +267,19 @@ n[w, k] = 0\\
 \tiny{Wynik działania filtru 11x11}
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\paragraph{\indent Działanie filtrów wyostrzających powoduje powstanie dodatkowych punktów kontrastu tym silniejszych im większa była różnica wartości między pikselami na osi oraz pikselem środkowym. W przypadku filtrów małych filtrów (np 3x3 i 5x5) podkreślone zostają mniej widoczne krawędzie na obrazie (np w piórach w kapeluszu). Zastosowanie większych filtrów powoduje powstanie dużego szumu na całym obrazie oraz znacznych zniekształceń w miejscach wyraźnym krawędzi. Poniżej przykłady na prostszym obrazie :}
+
+\begin{center}
+\text{wyniki działania filtrów 3x3 oraz 7x7:}\\
+\includegraphics[width=7cm]{resources/modified/sample/sample_sharpen_3x3.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_sharpen_7x7.jpg}
+\\
+\text{wyniki działania filtrów 11x11 oraz 21x21:}\\
+\includegraphics[width=7cm]{resources/modified/sample/sample_sharpen_11x11.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_sharpen_21x21.jpg}
+\end{center}
+
 \pagebreak
 \subsection{Dodatkowe filtry}
 
@@ -321,7 +297,20 @@ n[w, k] = 0\\
 \includegraphics[width=7cm]{resources/modified/lena/lena_sharpen_21x21.jpg}
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\paragraph{\indent W przeciwieństwie do filtrów uśredniających, filtry wyostrzające nie zmieniają tak mocno skutków działania w zależności od stosunku szerokości do wysokości. Poniżej przykłady na prostszym obrazie :}
+
+\begin{center}
+\text{wyniki działania filtrów 40x1 oraz 1x40:}\\
+\includegraphics[width=7cm]{resources/modified/sample/sample_sharpen_21x3.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_sharpen_3x21.jpg}
+\\
+\text{wyniki działania filtrów 40x5 oraz 5x40:}\\
+\includegraphics[width=7cm]{resources/modified/sample/sample_sharpen_5x11.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_sharpen_11x5.jpg}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagebreak
 \section{Pozostałe filtry}
 
@@ -329,23 +318,25 @@ n[w, k] = 0\\
 \text{wyniki działania filtrów typu "emboss":}\\
 \includegraphics[width=7cm]{resources/modified/lena/lena_emboss_1.jpg}
 \includegraphics[width=7cm]{resources/modified/lena/lena_emboss_2.jpg}
-\\
+\includegraphics[width=7cm]{resources/modified/sample/sample_emboss_1.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_emboss_2.jpg}\\
+\pagebreak
 \text{wyniki działania filtrów typu "ridge detection":}\\
 \includegraphics[width=7cm]{resources/modified/lena/lena_ridge_detection_1.jpg}
 \includegraphics[width=7cm]{resources/modified/lena/lena_ridge_detection_2.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_ridge_detection_1.jpg}
+\includegraphics[width=7cm]{resources/modified/sample/sample_ridge_detection_2.jpg}
 \end{center}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{Odpowiedź częstotliwościowa}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Wnioski}
 
-\section{Filtr uśredniający}
-
-\section{Filtr wyostrzający}
-
+\paragraph{\indent Wykorzystując odpowiednie filtry należy pamiętać o tym jak zależą jego efekty w stosunku do jego wielkości. Filtr wykorzystany nieoptymalnie może dać odwrotne efekty od oczekiwanych. W celu lepszego poznania charakterystyki filtru można wykonać kilka testów na rożnych obrazach w różnych wariacjach filtru.}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Dodatkowe}
 \paragraph{Do wykonania zamieszczonych obrazów wykorzystałem napisane przeze mnie skrypty w Pythonie i Matlabie. Wszystkie skrypty oraz dodatkowe przefiltrowane obrazy są zamieszczone w \href{https://github.com/FilipM13/CPS}{moim repozytorium na githubie}.}
 
- \end{document}
+\end{document}

@@ -7,13 +7,15 @@ import numpy
 from scipy import ndimage
 
 #%% CONSTANT VARIABLES
-key = "lena"
+key = "baboon2"
+
 JSON_SOURCE_FILE1 = './generated_filters.json'
 JSON_SOURCE_FILE1 = os.path.realpath(JSON_SOURCE_FILE1)
+
 JSON_SOURCE_FILE2 = './custom_filters.json'
 JSON_SOURCE_FILE2 = os.path.realpath(JSON_SOURCE_FILE2)
 
-IMAGE_FILE = '../../resources/lena.jpg'
+IMAGE_FILE = '../../resources/baboon2.jpg'
 IMAGE_FILE = os.path.realpath(IMAGE_FILE)
 
 #%% IMPORTING FILTER DATA FROM JSON FILE
@@ -25,7 +27,6 @@ with open(JSON_SOURCE_FILE2) as file:
 #%% CONVERTING FILTER DATA TO FILTER OBJECTS
 filters_data = filters_data1["generated filters"] + filters_data2['custom filters']
 generated_filters = [Filter(f['name'], numpy.array(f['matrix'])) for f in filters_data]
-#custom_filters = [Filter(f['name'], numpy.array(f['matrix'])) for f in filters_data["custom filters"]]
 
 #%% IMPORTING IMAGE
 image = Image.open(IMAGE_FILE)
@@ -40,10 +41,6 @@ for filt in generated_filters:
   _rv = ndimage.convolve(gray_image, _kernel)
   filtered_images[filt.name] = Image.fromarray(_rv, 'L')
 
-# for filt in custom_filters:
-#   _kernel = filt.matrix
-#   _rv = ndimage.convolve(gray_image, _kernel)
-#   filtered_images[filt.name] = Image.fromarray(_rv, 'L')
 
 #%% SAVE IMAGES
 image.save(f'../../resources/modified/{key}_gray.jpg')

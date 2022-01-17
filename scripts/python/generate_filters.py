@@ -16,7 +16,9 @@ BLUR_SIZES = [  # each must be [ positive int,  positive int]
   [20,3],
   [3,20],
   [40,3],
-  [3,40]
+  [3,40],
+  [40,1],
+  [1,40]
 ]
 
 SHARPEN_SIZES = [ # each must be [odd positive  int, odd positive  int]
