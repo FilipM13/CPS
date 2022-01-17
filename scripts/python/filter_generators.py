@@ -1,6 +1,6 @@
 import numpy as np
 
-def make_sharp_matrix(shape :[int, int]):
+def make_sharp_matrix(shape :[int, int]) -> list[list[int]]:
   # validate
   assert shape[0] > 0
   assert isinstance(shape[0], int)
@@ -23,7 +23,7 @@ def make_sharp_matrix(shape :[int, int]):
       rv.append(sub_rv)
   return rv
 
-def make_blur_matrix(shape :[int, int]):
+def make_blur_matrix(shape :[int, int]) -> list[list[int]]:
   # validate
   assert shape[0] > 0
   assert isinstance(shape[0], int)

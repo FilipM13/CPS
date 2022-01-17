@@ -1,0 +1,9 @@
+./scripts/python/.idea/*
+./scripts/python/__pycache__/*
+sprawozdanie.aux
+sprawozdanie.idx
+sprawozdanie.log
+sprawozdanie.out
+sprawozdanie.synctex.gz
+sprawozdanie.toc
+notatki.txt

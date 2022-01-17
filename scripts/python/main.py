@@ -8,18 +8,23 @@ from scipy import ndimage
 
 #%% CONSTANT VARIABLES
 key = "lena"
-JSON_SOURCE_FILE = './test.json'
-JSON_SOURCE_FILE = os.path.realpath(JSON_SOURCE_FILE)
+JSON_SOURCE_FILE1 = './generated_filters.json'
+JSON_SOURCE_FILE1 = os.path.realpath(JSON_SOURCE_FILE1)
+JSON_SOURCE_FILE2 = './custom_filters.json'
+JSON_SOURCE_FILE2 = os.path.realpath(JSON_SOURCE_FILE2)
 
 IMAGE_FILE = '../../resources/lena.jpg'
 IMAGE_FILE = os.path.realpath(IMAGE_FILE)
 
 #%% IMPORTING FILTER DATA FROM JSON FILE
-with open(JSON_SOURCE_FILE) as file:
-  filters_data = json.load(file)
+with open(JSON_SOURCE_FILE1) as file:
+  filters_data1 = json.load(file)
+with open(JSON_SOURCE_FILE2) as file:
+  filters_data2 = json.load(file)
 
 #%% CONVERTING FILTER DATA TO FILTER OBJECTS
-generated_filters = [Filter(f['name'], numpy.array(f['matrix'])) for f in filters_data["generated filters"]]
+filters_data = filters_data1["generated filters"] + filters_data2['custom filters']
+generated_filters = [Filter(f['name'], numpy.array(f['matrix'])) for f in filters_data]
 #custom_filters = [Filter(f['name'], numpy.array(f['matrix'])) for f in filters_data["custom filters"]]
 
 #%% IMPORTING IMAGE

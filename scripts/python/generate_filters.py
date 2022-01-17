@@ -3,7 +3,7 @@ import json
 from filter_generators import make_blur_matrix, make_sharp_matrix
 from utils import make_string, filter_data_to_json_dict
 
-BLUR_SIZES = [  # must be [ positive int,  positive int]
+BLUR_SIZES = [  # each must be [ positive int,  positive int]
   [3,3],
   [5,5],
   [10,10],
@@ -19,7 +19,7 @@ BLUR_SIZES = [  # must be [ positive int,  positive int]
   [3,40]
 ]
 
-SHARPEN_SIZES = [ # must be [odd positive  int, odd positive  int]
+SHARPEN_SIZES = [ # each must be [odd positive  int, odd positive  int]
   [3,3],
   [5,5],
   [7,7],
@@ -67,13 +67,13 @@ for n in BLUR_SIZES:
 blur_matrices = ''.join(blur_matrices)
 
 #%%write json string to txt file
-with open('filters.txt', 'w') as note:
-  final_string = ''.join([sharp_matrices, blur_matrices])
-  final_string = final_string.removesuffix(',')
-  note.write(final_string)
+# with open('filters.txt', 'w') as note:
+#   final_string = ''.join([sharp_matrices, blur_matrices])
+#   final_string = final_string.removesuffix(',')
+#   note.write(final_string)
 
 #%%write dict to json file
 filters = sharp_matrices_dict + blur_matrices_dict
 final_json_dict = {"generated filters" : filters}
-with open("test.json", 'w') as f:
+with open("generated_filters.json", 'w') as f:
   json.dump(final_json_dict, f)
