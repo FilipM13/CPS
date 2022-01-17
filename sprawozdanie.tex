@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt,openany]{report}
 
-\usepackage{geometry}
-\geometry{margin=2cm}
+\usepackage[a4paper, total={18cm, 27cm}]{geometry}
+\usepackage{layout}
 \usepackage[utf8]{inputenc}
 \usepackage{polski}
 \usepackage{graphicx}
@@ -10,6 +10,7 @@
 \usepackage{index}
 \usepackage{subcaption}
 \usepackage{hyperref}
+\usepackage{titlesec}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -18,7 +19,13 @@
     pdftitle={Overleaf Example},
     pdfpagemode=FullScreen,
     }
+\titleformat{\chapter}[display]{\normalfont\bfseries}{}{0pt}{\Large}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
 
+  
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,25 +73,6 @@ K - \text{liczba kolumn} \\
 n[w, k] - \text{wartość macierzy w wierszu 'w' i kolumnie 'k'} \\
 n[w, k] = \frac{1}{w*k}\\
 \end{gather*}
-\\
-\linebreak
-\text{Wykorzystane rozmiary macierzy:}
-\begin{itemize}
-\item 3x3
-\item 5x5
-\item 10x10
-\item 20x20
-\item 40x40
-\item 20x5
-\item 5x20
-\item 40x5
-\item 5x40
-\item 20x3
-\item 3x20
-\item 40x3
-\item 3x40
-\end{itemize}
-\pagebreak
 
 \section{Filtr wyostrzający}
 \text{Przykład filtru uśredniającego:}
@@ -117,30 +105,7 @@ n[w, k] = -1\\
 text{pozostałe przypadki to:}\\
 n[w, k] = 0\\
 \end{gather*}
-\\
-\linebreak
-\text{Wykorzystane rozmiary macierzy:}
-\begin{itemize}
-\item 3x3
-\item 5x5
-\item 7x7
-\item 9x9
-\item 11x11
-\item 21x21
-\item 9x5
-\item 11x5
-\item 21x5
-\item 5x9
-\item 5x11
-\item 5x21
-\item 9x3
-\item 11x3
-\item 21x3
-\item 3x9
-\item 3x11
-\item 3x21
-\end{itemize}
-\pagebreak
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
