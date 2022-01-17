@@ -1,19 +1,19 @@
 {
   "custom filters": [
     {
-      "name": "ridge detection 1",
+      "name": "ridge_detection_1",
       "matrix": [[0, -1, 0], [-1, -4, -1], [0, -1, 0]]
     },
     {
-      "name": "ridge detection 2",
+      "name": "ridge_detection_2",
       "matrix": [[-1,-1,-1], [-1,-8,-1], [-1,-1,-1]]
     },
     {
-      "name": "emboss 1",
+      "name": "emboss_1",
       "matrix": [[-2,-1,-0], [-1,0,1], [0,1,2]]
     },
     {
-      "name": "emboss 2",
+      "name": "emboss_2",
       "matrix": [
         [-1,0,0,0,0],
         [0,-1,0,0,0],
